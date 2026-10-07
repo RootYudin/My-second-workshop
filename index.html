@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShopNepal - Online Shopping</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- TOP BAR -->
+    <div class="top-bar">
+        <div class="top-container">
+            <div class="top-left">
+                <span>Save More on App</span>
+                <span>Become a Seller</span>
+                <span>Help & Support</span>
+            </div>
+
+            <div class="top-right">
+                <span>Track My Order</span>
+                <span>Login</span>
+                <span>Sign Up</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- HEADER -->
+    <header class="header">
+        <div class="header-container">
+
+            <div class="logo">
+                <span class="logo-main">SHOP</span>
+                <span class="logo-sub">NEPAL</span>
+            </div>
+
+            <div class="search-container">
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="Search for products..."
+                >
+                <button id="searchBtn">🔍</button>
+            </div>
+
+            <div class="header-actions">
+                <button class="header-icon" id="cartBtn">
+                    🛒
+                    <span class="cart-count" id="cartCount">0</span>
+                </button>
+
+                <button class="header-icon">
+                    ❤️
+                </button>
+            </div>
+
+        </div>
+    </header>
+
+    <!-- NAVIGATION -->
+    <nav class="navigation">
+        <div class="nav-container">
+            <button class="category-button" id="categoryBtn">
+                ☰ Categories
+            </button>
+
+            <a href="#home">Home</a>
+            <a href="#products">Products</a>
+            <a href="#flash-sale">Flash Sale</a>
+            <a href="#categories">Categories</a>
+            <a href="#deals">Deals</a>
+        </div>
+    </nav>
+
+    <!-- CATEGORY DROPDOWN -->
+    <div class="category-menu" id="categoryMenu">
+        <button onclick="filterCategory('All')">All Categories</button>
+        <button onclick="filterCategory('Electronics')">📱 Electronics</button>
+        <button onclick="filterCategory('Fashion')">👕 Fashion</button>
+        <button onclick="filterCategory('Home')">🏠 Home & Living</button>
+        <button onclick="filterCategory('Beauty')">💄 Beauty</button>
+        <button onclick="filterCategory('Sports')">⚽ Sports</button>
+        <button onclick="filterCategory('Grocery')">🛒 Grocery</button>
+    </div>
+
+    <!-- HERO -->
+    <main>
+
+        <section class="hero" id="home">
+
+            <div class="hero-content">
+                <p class="hero-small">WELCOME TO SHOPNEPAL</p>
+
+                <h1>
+                    Everything You Need,
+                    <span>All in One Place.</span>
+                </h1>
+
+                <p class="hero-description">
+                    Discover thousands of products at amazing prices.
+                    Shop electronics, fashion, home products and more.
+                </p>
+
+                <button class="shop-now" onclick="scrollToProducts()">
+                    Shop Now →
+                </button>
+            </div>
+
+            <div class="hero-image">
+                <div class="hero-circle">
+                    🛍️
+                </div>
+            </div>
+
+        </section>
+
+        <!-- FLASH SALE -->
+        <section class="section" id="flash-sale">
+
+            <div class="section-header">
+                <div>
+                    <p class="section-label">LIMITED TIME</p>
+                    <h2>Flash Sale ⚡</h2>
+                </div>
+
+                <div class="timer" id="timer">
+                    00 : 00 : 00
+                </div>
+            </div>
+
+            <div class="flash-products" id="flashProducts"></div>
+
+        </section>
+
+        <!-- CATEGORIES -->
+        <section class="section" id="categories">
+
+            <div class="section-header">
+                <div>
+                    <p class="section-label">EXPLORE</p>
+                    <h2>Categories</h2>
+                </div>
+            </div>
+
+            <div class="category-grid">
+
+                <div class="category-card" onclick="filterCategory('Electronics')">
+                    <div class="category-icon">📱</div>
+                    <h3>Electronics</h3>
+                    <p>Smartphones & gadgets</p>
+                </div>
+
+                <div class="category-card" onclick="filterCategory('Fashion')">
+                    <div class="category-icon">👕</div>
+                    <h3>Fashion</h3>
+                    <p>Clothes & accessories</p>
+                </div>
+
+                <div class="category-card" onclick="filterCategory('Home')">
+                    <div class="category-icon">🏠</div>
+                    <h3>Home & Living</h3>
+                    <p>Make your home better</p>
+                </div>
+
+                <div class="category-card" onclick="filterCategory('Beauty')">
+                    <div class="category-icon">💄</div>
+                    <h3>Beauty</h3>
+                    <p>Beauty & personal care</p>
+                </div>
+
+                <div class="category-card" onclick="filterCategory('Sports')">
+                    <div class="category-icon">⚽</div>
+                    <h3>Sports</h3>
+                    <p>Sports & fitness</p>
+                </div>
+
+                <div class="category-card" onclick="filterCategory('Grocery')">
+                    <div class="category-icon">🛒</div>
+                    <h3>Grocery</h3>
+                    <p>Daily essentials</p>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- PRODUCTS -->
+        <section class="section" id="products">
+
+            <div class="section-header">
+
+                <div>
+                    <p class="section-label">SHOP NOW</p>
+                    <h2>Just For You</h2>
+                </div>
+
+                <div class="filter-buttons">
+                    <button class="filter active" onclick="filterCategory('All')">
+                        All
+                    </button>
+
+                    <button class="filter" onclick="filterCategory('Electronics')">
+                        Electronics
+                    </button>
+
+                    <button class="filter" onclick="filterCategory('Fashion')">
+                        Fashion
+                    </button>
+
+                    <button class="filter" onclick="filterCategory('Home')">
+                        Home
+                    </button>
+                </div>
+
+            </div>
+
+            <div class="product-grid" id="productGrid"></div>
+
+        </section>
+
+        <!-- DEAL BANNER -->
+        <section class="deal-section" id="deals">
+
+            <div class="deal-content">
+                <p>MEGA DEAL</p>
+                <h2>Up to 50% OFF</h2>
+                <span>On selected products</span>
+
+                <button onclick="scrollToProducts()">
+                    Explore Deals
+                </button>
+            </div>
+
+            <div class="deal-icon">
+                🎁
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+
+        <div class="footer-container">
+
+            <div class="footer-column">
+                <h3>ShopNepal</h3>
+                <p>
+                    Your trusted online shopping destination.
+                    Shop easily from anywhere in Nepal.
+                </p>
+            </div>
+
+            <div class="footer-column">
+                <h3>Customer Service</h3>
+                <a href="#">Help Center</a>
+                <a href="#">Contact Us</a>
+                <a href="#">Returns & Refunds</a>
+                <a href="#">Shipping Information</a>
+            </div>
+
+            <div class="footer-column">
+                <h3>About Us</h3>
+                <a href="#">About ShopNepal</a>
+                <a href="#">Careers</a>
+                <a href="#">Terms & Conditions</a>
+                <a href="#">Privacy Policy</a>
+            </div>
+
+            <div class="footer-column">
+                <h3>Follow Us</h3>
+                <div class="socials">
+                    <span>f</span>
+                    <span>𝕏</span>
+                    <span>◎</span>
+                    <span>▶</span>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="copyright">
+            © 2026 ShopNepal. Frontend Demo Project.
+        </div>
+
+    </footer>
+
+    <!-- CART SIDEBAR -->
+    <div class="overlay" id="overlay"></div>
+
+    <aside class="cart-sidebar" id="cartSidebar">
+
+        <div class="cart-header">
+            <h2>Your Cart</h2>
+            <button id="closeCart">×</button>
+        </div>
+
+        <div class="cart-items" id="cartItems">
+            <p class="empty-cart">
+                Your cart is empty.
+            </p>
+        </div>
+
+        <div class="cart-footer">
+
+            <div class="cart-total">
+                <span>Total</span>
+                <strong id="cartTotal">Rs. 0</strong>
+            </div>
+
+            <button class="checkout-btn" onclick="checkout()">
+                Proceed to Checkout
+            </button>
+
+        </div>
+
+    </aside>
+
+    <!-- PRODUCT MODAL -->
+    <div class="modal-overlay" id="productModal">
+
+        <div class="product-modal">
+
+            <button class="modal-close" onclick="closeProductModal()">
+                ×
+            </button>
+
+            <div id="modalContent"></div>
+
+        </div>
+
+    </div>
+
+    <!-- LOGIN MODAL -->
+    <div class="modal-overlay" id="loginModal">
+
+        <div class="login-box">
+
+            <button class="modal-close" onclick="closeLogin()">
+                ×
+            </button>
+
+            <h2>Welcome Back</h2>
+
+            <p>Login to continue shopping</p>
+
+            <input type="email" placeholder="Email address">
+            <input type="password" placeholder="Password">
+
+            <button class="login-btn">
+                Login
+            </button>
+
+            <div class="divider">
+                OR
+            </div>
+
+            <button class="google-btn">
+                Continue with Google
+            </button>
+
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
